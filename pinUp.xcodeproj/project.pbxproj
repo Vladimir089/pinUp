@@ -19,6 +19,7 @@
 		159835E12C60E8FF009EB274 /* PlantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835E02C60E8FF009EB274 /* PlantsViewController.swift */; };
 		159835E32C60EEDC009EB274 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835E22C60EEDC009EB274 /* Models.swift */; };
 		159835E52C60F501009EB274 /* NewPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835E42C60F501009EB274 /* NewPlantViewController.swift */; };
+		159835E72C624411009EB274 /* DetailPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835E62C624411009EB274 /* DetailPlantViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		159835E02C60E8FF009EB274 /* PlantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsViewController.swift; sourceTree = "<group>"; };
 		159835E22C60EEDC009EB274 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		159835E42C60F501009EB274 /* NewPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlantViewController.swift; sourceTree = "<group>"; };
+		159835E62C624411009EB274 /* DetailPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlantViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				159835E02C60E8FF009EB274 /* PlantsViewController.swift */,
 				159835E42C60F501009EB274 /* NewPlantViewController.swift */,
+				159835E62C624411009EB274 /* DetailPlantViewController.swift */,
 			);
 			path = PlantsVC;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				159835D62C60D0BA009EB274 /* LoadViewController.swift in Sources */,
 				159835BF2C60CFC6009EB274 /* AppDelegate.swift in Sources */,
 				159835C12C60CFC6009EB274 /* SceneDelegate.swift in Sources */,
+				159835E72C624411009EB274 /* DetailPlantViewController.swift in Sources */,
 				159835DE2C60E719009EB274 /* TabBarViewController.swift in Sources */,
 				159835E12C60E8FF009EB274 /* PlantsViewController.swift in Sources */,
 				159835DB2C60DE72009EB274 /* OnbUserViewController.swift in Sources */,

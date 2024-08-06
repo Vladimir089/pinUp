@@ -164,5 +164,16 @@ extension PlantsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: 173, height: 210)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailPlantViewController()
+        vc.index = indexPath.row
+        vc.delegate = self
+        self.present(vc, animated: true)
+    }
+    
     
 }
+
+
+
+//ДОДЕЛАТЬ ПРОСМОТР УДАЛЕНИЕ И ДОБАВЛЕНИЕ ИСТОРИИ К РАСТЕНИЮ
