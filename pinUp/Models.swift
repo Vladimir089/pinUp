@@ -18,9 +18,9 @@ struct Plant: Codable {
     var humidity: String
     var soil: String
     
-    var history: [PlantHistory]?
+    var history: [PlantHistory]
     
-    init(image: Data, name: String, variety: String, period: String, temp: String, humidity: String, soil: String, history: [PlantHistory]? = nil) {
+    init(image: Data, name: String, variety: String, period: String, temp: String, humidity: String, soil: String, history: [PlantHistory]) {
         self.image = image
         self.name = name
         self.variety = variety

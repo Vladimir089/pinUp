@@ -13,6 +13,8 @@ protocol DetailPlantViewControllerDelegate: AnyObject {
 
 class DetailPlantViewController: UIViewController {
     
+    let imageArr = [UIImage.hisOne, UIImage.hisTwo, UIImage.hisThree, UIImage.hisFour, UIImage.hisFive]
+    
     var index = 0
     weak var delegate: PlantsViewControllerDelegate?
     var mainCollection: UICollectionView?
@@ -53,7 +55,7 @@ class DetailPlantViewController: UIViewController {
             collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "2")
             collection.delegate = self
             collection.dataSource = self
-            collection.backgroundColor = .red
+            collection.backgroundColor = .clear
             return collection
         }()
         
@@ -139,6 +141,13 @@ class DetailPlantViewController: UIViewController {
         }
     }
     
+    @objc func openNewHistory() {
+       let vc = NewPlantHistoryViewController()
+        vc.index = index
+        vc.delegate = self
+        self.present(vc, animated: true)
+    }
+    
 
 }
 
@@ -148,11 +157,12 @@ extension DetailPlantViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView == mainCollection {
             return 1
         } else {
-            if plantsArr[index].history?.count ?? 0 > 0 {
-                return (plantsArr[index].history?.count ?? 0) + 1
+            if plantsArr[index].history.count ?? 0 > 0 {
+                return (plantsArr[index].history.count ?? 0) + 1
             } else {
                 return 1
             }
+           
         }
     }
     
@@ -258,7 +268,6 @@ extension DetailPlantViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "2", for: indexPath)
             cell.subviews.forEach { $0.removeFromSuperview() }
-            cell.backgroundColor = .green
             
             if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
                 let addButton = UIButton(type: .system)
@@ -273,37 +282,88 @@ extension DetailPlantViewController: UICollectionViewDelegate, UICollectionViewD
                     make.width.equalTo(100)
                     make.height.equalToSuperview()
                 }
+                cell.backgroundColor = .clear
                 cell.addSubview(addButton)
                 addButton.snp.makeConstraints { make in
                     make.height.equalTo(56)
                     make.left.right.equalToSuperview()
                     make.centerX.centerY.equalToSuperview()
                 }
+                addButton.addTarget(self, action: #selector(openNewHistory), for: .touchUpInside)
                 
             } else {
-                // Это не последняя ячейка
-                print("Это не последняя ячейка")
-                cell.backgroundColor = .brown
+                cell.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+                cell.layer.cornerRadius = 16
+                
+                
+                let image = imageArr[plantsArr[index].history[indexPath.row].indexImage]
+                let newImage = image.withRenderingMode(.alwaysTemplate)
+                newImage.withTintColor(.black)
+                let imageView = UIImageView(image: newImage)
+                imageView.tintColor = .black
+                imageView.contentMode = .scaleAspectFit
+                cell.addSubview(imageView)
+                imageView.snp.makeConstraints { make in
+                    make.height.width.equalTo(20)
+                    make.centerY.equalToSuperview()
+                    make.left.equalToSuperview().inset(15)
+                }
+                
+                
+                let nameLabel = UILabel()
+                nameLabel.text = plantsArr[index].history[indexPath.row].action
+                nameLabel.textColor = .black
+                nameLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+                cell.addSubview(nameLabel)
+                nameLabel.snp.makeConstraints { make in
+                    make.centerY.equalToSuperview()
+                    make.left.equalTo(imageView.snp.right).inset(-15)
+                }
+                
+                let dateLabel = UILabel()
+                dateLabel.text =  dateFormatter(date: plantsArr[index].history[indexPath.row].date)
+                dateLabel.textColor = .black.withAlphaComponent(0.4)
+                dateLabel.font = .systemFont(ofSize: 13, weight: .regular)
+                cell.addSubview(dateLabel)
+                dateLabel.snp.makeConstraints { make in
+                    make.right.equalToSuperview().inset(15)
+                    make.centerY.equalToSuperview()
+                }
+                
+                
+                
             }
             
             return cell
         }
     }
     
+    
+    func dateFormatter(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == mainCollection {
-            return CGSize(width: collectionView.bounds.width, height: 680 + CGFloat((Float(plantsArr[index].history?.count ?? 1) * 70)))
+            return CGSize(width: collectionView.bounds.width, height: 680 + CGFloat((Float(plantsArr[index].history.count ?? 1) * 65.5)))
         } else {
             return CGSize(width: 358, height: 56)
         }
     }
     
+   
     
 }
 
 
 extension DetailPlantViewController: DetailPlantViewControllerDelegate {
+    
+    
     func reloadTables() {
+//        print(plantsArr[index].history?.count)
+//        print(plantsArr[index].history, "dop")
         mainCollection?.reloadData()
         historyCollection?.reloadData()
     }

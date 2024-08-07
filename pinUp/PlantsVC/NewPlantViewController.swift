@@ -167,7 +167,7 @@ class NewPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         let type: String = soilTextField?.text ?? ""
         
         
-        let plant = Plant(image: imageView?.image?.jpegData(compressionQuality: 0.5) ?? Data(), name: name, variety: varietly, period: period, temp: temp, humidity: humidity, soil: type, history: nil)
+        let plant = Plant(image: imageView?.image?.jpegData(compressionQuality: 0.5) ?? Data(), name: name, variety: varietly, period: period, temp: temp, humidity: humidity, soil: type, history: [])
         
         plantsArr.append(plant)
         print(plantsArr)

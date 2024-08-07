@@ -105,10 +105,10 @@ class PlantsViewController: UIViewController {
     func chechPlants() {
         if plantsArr.count > 0 {
             noPlantsImageView?.alpha = 0
-            //показываем коллекцию
+            collection?.alpha = 1
         } else {
             noPlantsImageView?.alpha = 1
-            //скрыаем коллекцию
+            collection?.alpha = 0
         }
     }
     
@@ -176,4 +176,4 @@ extension PlantsViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 
 
-//ДОДЕЛАТЬ ПРОСМОТР УДАЛЕНИЕ И ДОБАВЛЕНИЕ ИСТОРИИ К РАСТЕНИЮ
+
