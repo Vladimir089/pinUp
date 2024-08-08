@@ -12,6 +12,8 @@ import UIKit
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     let plantsVC = PlantsViewController()
+    let eqimpVC = EquimpetViewController()
+    
     let newPlantVC = NewPlantViewController()
     
 
@@ -41,31 +43,36 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         let plantsTabBarItem = UITabBarItem(title: "", image: .tab1.resize(targetSize: CGSize(width: 24, height: 21)), tag: 0)
         plantsVC.tabBarItem = plantsTabBarItem
         
+        let eqimpTabBarItem = UITabBarItem(title: "", image: .tab2.resize(targetSize: CGSize(width: 23, height: 21)), tag: 1)
+        eqimpVC.tabBarItem = eqimpTabBarItem
+        
         let imageNew = UIImage(named: "addNewPlant")!
         let imageOriginal = imageNew.withRenderingMode(.alwaysOriginal)
-        let newPlantItem = UITabBarItem(title: "", image: imageOriginal, tag: 1)
+        let newPlantItem = UITabBarItem(title: "", image: imageOriginal, tag: 3)
         newPlantVC.tabBarItem = newPlantItem
-        viewControllers = [plantsVC, newPlantVC]
+        viewControllers = [plantsVC, eqimpVC, newPlantVC]
     }
 
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-           if viewController.tabBarItem.tag == 1 {// Модальное представление NewPlantViewController
+           if viewController.tabBarItem.tag == 3 {// Модальное представление NewPlantViewController
                
                switch tabBarController.selectedIndex {
                case 0:
                    let newPlantVC = NewPlantViewController()
                    newPlantVC.delegate = plantsVC.self
                    self.present(newPlantVC, animated: true, completion: nil)
-                   print(0)
                case 1:
-                   print(1)
+                   let newEqVC = NewOrEditEquimpentViewController()
+                   newEqVC.delegate = eqimpVC.self
+                   newEqVC.isNew = true
+                   self.present(newEqVC, animated: true, completion: nil)
                default:
                    break
                }
 
                
-               return false // Возвращаем false, чтобы предотвратить обычное поведение выбора таба
+               return false 
            }
        
            return true // Для других табов возвращаем true

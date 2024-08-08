@@ -21,6 +21,9 @@
 		159835E52C60F501009EB274 /* NewPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835E42C60F501009EB274 /* NewPlantViewController.swift */; };
 		159835E72C624411009EB274 /* DetailPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835E62C624411009EB274 /* DetailPlantViewController.swift */; };
 		159835E92C6385BF009EB274 /* NewPlantHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835E82C6385BF009EB274 /* NewPlantHistoryViewController.swift */; };
+		159835EC2C64D3ED009EB274 /* EquimpetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835EB2C64D3ED009EB274 /* EquimpetViewController.swift */; };
+		159835EE2C64E1B5009EB274 /* ExtensionEqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835ED2C64E1B5009EB274 /* ExtensionEqVC.swift */; };
+		159835F02C64EBFC009EB274 /* NewOrEditEquimpentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159835EF2C64EBFB009EB274 /* NewOrEditEquimpentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		159835E42C60F501009EB274 /* NewPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlantViewController.swift; sourceTree = "<group>"; };
 		159835E62C624411009EB274 /* DetailPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlantViewController.swift; sourceTree = "<group>"; };
 		159835E82C6385BF009EB274 /* NewPlantHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlantHistoryViewController.swift; sourceTree = "<group>"; };
+		159835EB2C64D3ED009EB274 /* EquimpetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquimpetViewController.swift; sourceTree = "<group>"; };
+		159835ED2C64E1B5009EB274 /* ExtensionEqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionEqVC.swift; sourceTree = "<group>"; };
+		159835EF2C64EBFB009EB274 /* NewOrEditEquimpentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrEditEquimpentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 		159835BD2C60CFC6009EB274 /* pinUp */ = {
 			isa = PBXGroup;
 			children = (
+				159835EA2C64D3D8009EB274 /* Equimpent */,
 				159835DF2C60E8E7009EB274 /* PlantsVC */,
 				159835DC2C60E6D8009EB274 /* TabBar */,
 				159835D42C60D0AA009EB274 /* LoadPage */,
@@ -128,6 +135,16 @@
 				159835E82C6385BF009EB274 /* NewPlantHistoryViewController.swift */,
 			);
 			path = PlantsVC;
+			sourceTree = "<group>";
+		};
+		159835EA2C64D3D8009EB274 /* Equimpent */ = {
+			isa = PBXGroup;
+			children = (
+				159835EB2C64D3ED009EB274 /* EquimpetViewController.swift */,
+				159835ED2C64E1B5009EB274 /* ExtensionEqVC.swift */,
+				159835EF2C64EBFB009EB274 /* NewOrEditEquimpentViewController.swift */,
+			);
+			path = Equimpent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +226,11 @@
 			files = (
 				159835D62C60D0BA009EB274 /* LoadViewController.swift in Sources */,
 				159835BF2C60CFC6009EB274 /* AppDelegate.swift in Sources */,
+				159835EE2C64E1B5009EB274 /* ExtensionEqVC.swift in Sources */,
 				159835C12C60CFC6009EB274 /* SceneDelegate.swift in Sources */,
 				159835E72C624411009EB274 /* DetailPlantViewController.swift in Sources */,
+				159835EC2C64D3ED009EB274 /* EquimpetViewController.swift in Sources */,
+				159835F02C64EBFC009EB274 /* NewOrEditEquimpentViewController.swift in Sources */,
 				159835DE2C60E719009EB274 /* TabBarViewController.swift in Sources */,
 				159835E12C60E8FF009EB274 /* PlantsViewController.swift in Sources */,
 				159835E92C6385BF009EB274 /* NewPlantHistoryViewController.swift in Sources */,

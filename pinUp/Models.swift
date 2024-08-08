@@ -44,3 +44,25 @@ struct PlantHistory: Codable {
         self.indexImage = indexImage
     }
 }
+
+
+
+
+//Машины
+
+struct Equipment: Codable {
+    var image: Data
+    var name: String
+    var price: Int
+    var status: String
+    
+    init(image: Data, name: String, price: Int, status: String) {
+        self.image = image
+        self.name = name
+        self.price = price
+        self.status = status
+    }
+}
+
+
+
